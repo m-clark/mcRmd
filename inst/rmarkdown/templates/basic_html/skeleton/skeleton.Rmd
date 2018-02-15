@@ -1,0 +1,45 @@
+---
+title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Title</span>
+subtitle: <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Subtitle</span>
+author:  |
+  <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Michael Clark</span> <br>
+  <span class="" style="font-size:75%">https://m-clark.github.io</span><br><br>
+  <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br>
+  <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"> 
+
+output:
+  html_document:
+    css: [css/book.css, css/standard_html.css]
+    number_sections: false
+    df_print: kable
+    fig_caption: yes
+    highlight: pygments
+    theme: sandstone
+    toc:
+      depth: 2
+      collapse: section
+      scroll_highlight: yes
+biblio-style: apalike
+link-citations: yes
+description: "An Introduction to RMarkdown"    
+cover-image: img/nineteeneightyR.png
+url: 'https\://m-clark.github.io/' 
+favicon: 'img/R.ico'
+github-repo:  m-clark/
+---
+
+```{r setup, include=FALSE, cache=FALSE}
+knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
+                      dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
+                      fig.align='center', out.width='75%', fig.asp=.75,                 
+                      cache.rebuild=F, cache=T)                                                         # cache
+```
+
+```{r packages, include=FALSE, cache=FALSE}
+library(magrittr); library(tidyverse); library(stringr); library(pander); library(plotly); library(lazerhawk)
+```
+
+
+# Introduction
+
+
