@@ -68,6 +68,11 @@ pre { /* Code block - determines code spacing between lines */
 }
 </style>
 
+```{r echo=FALSE, results='hide'}
+mapply(function(o, v) panderOptions(o, v),
+       c('keep.trailing.zeros', 'round', 'table.split.table', 'table.split.cells'), 
+       c(TRUE, 2, Inf, Inf))
+```
 
 # Introduction
 
@@ -80,6 +85,11 @@ cat('x')
 for (i in 1:length(cats)) {
   'Meow'
 }
+```
+
+
+```{r}
+head(mtcars) %>% pander()
 ```
 
 
