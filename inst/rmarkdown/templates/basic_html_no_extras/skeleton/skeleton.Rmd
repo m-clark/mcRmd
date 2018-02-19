@@ -16,6 +16,8 @@ output:
       collapse: section
       smooth_scroll: false    
       scroll_highlight: yes
+font-import: http://fonts.googleapis.com/css?family=Roboto|Open+Sans
+font-family: 'Roboto'
 biblio-style: apalike
 link-citations: yes
 description: ""    
@@ -31,12 +33,53 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.opt
 ```
 
 ```{r packages, include=FALSE, cache=FALSE}
-library(magrittr); library(tidyverse); library(stringr); library(pander); library(plotly); library(lazerhawk)
+library(magrittr); library(tidyverse); library(stringr); library(pander); 
+library(plotly); library(lazerhawk); library(viridis)
 ```
+
+<style type="text/css">
+
+body{ /* Normal  */
+      font-size: 12px;
+      color: #585858;
+      background-color: 
+  }
+td {  /* Table  */
+  font-size: 8px;
+}
+h1.title {
+
+}
+h1 { /* Header 1 */
+
+}
+h2 { /* Header 2 */
+
+}
+h3 { /* Header 3 */
+
+}
+code.r{ /* Code block */
+    font-size: 12px;
+    font-family: 'Roboto Mono' Monaco Consolas 'Courier New' fixed width;
+}
+pre { /* Code block - determines code spacing between lines */
+    
+}
+</style>
 
 
 # Introduction
 
+This is a single page doc with various settings that can be used without relying on outside files.
 
-# test
+## Section
+
+```{r eval=FALSE}
+cat('x')
+for (i in 1:length(cats)) {
+  'Meow'
+}
+```
+
 

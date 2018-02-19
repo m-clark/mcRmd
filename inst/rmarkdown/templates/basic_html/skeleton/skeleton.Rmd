@@ -6,7 +6,6 @@ author:  |
   <span class="" style="font-size:75%">https://m-clark.github.io</span><br><br>
   <img src="img/CSCAR_logos/signature-acronym.png" style="width:30%; padding:10px 0;" alt="University of Michigan: CSCAR"> <br>
   <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"> 
-
 output:
   html_document:
     css: [css/book.css, css/standard_html.css]
@@ -38,7 +37,8 @@ knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.opt
 ```
 
 ```{r packages, include=FALSE, cache=FALSE}
-library(magrittr); library(tidyverse); library(stringr); library(pander); library(plotly); library(lazerhawk)
+library(magrittr); library(tidyverse); library(stringr); library(pander); 
+library(plotly); library(lazerhawk); library(viridis)
 ```
 
 
