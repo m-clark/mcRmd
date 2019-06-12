@@ -1,10 +1,10 @@
 Package: mcRmd
 Type: Package
 Title: R Markdown templates
-Version: 0.1.0
+Version: 0.2.0
 Author: Michael Clark
 Maintainer: MC <micl@umich.edu>
-Description: A collection of templates
-License: What license is it under?
+Description: A collection of templates.
+License: CC0
 Encoding: UTF-8
 LazyData: true
