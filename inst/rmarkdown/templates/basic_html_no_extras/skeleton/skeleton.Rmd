@@ -1,5 +1,5 @@
 ---
-title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Title</span>
+title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Basic HTML no extras</span>
 subtitle: <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Subtitle</span>
 author:  |
   Michael Clark

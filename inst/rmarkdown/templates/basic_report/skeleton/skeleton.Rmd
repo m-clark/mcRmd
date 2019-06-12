@@ -1,5 +1,5 @@
 ---
-title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Basic HTML</span>
+title: <span style="font-size:125%; font-family:Roboto; font-style:normal">Basic Report</span>
 subtitle: <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Subtitle</span>
 author:  |
   <span style="font-size:125%; font-style:normal; font-variant:small-caps; font-family:'Open Sans'">Michael Clark</span> <br>
@@ -8,7 +8,7 @@ author:  |
   <img src="img/ARC_logos/ARC-acronym-signature.png" style="width:21%; padding:10px 0;" alt="University of Michigan: Advanced Research Computing"> 
 output:
   html_document:
-    css: [css/book.css, css/standard_html.css]
+    # css: [css/book.css, css/standard_html.css]
     number_sections: false
     df_print: kable
     fig_caption: yes
@@ -30,18 +30,70 @@ github-repo:  m-clark/
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
-knitr::opts_chunk$set(echo = T, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
+knitr::opts_chunk$set(echo = F, message=F, warning=F, error=F, comment=NA, R.options=list(width=220),   # code 
                       dev.args=list(bg = 'transparent'), dev='svglite',                                 # viz
                       fig.align='center', out.width='75%', fig.asp=.75,                 
                       cache.rebuild=F, cache=T)                                                         # cache
 ```
 
 ```{r packages, include=FALSE, cache=FALSE}
-library(magrittr); library(tidyverse); library(stringr); library(pander); 
+library(magrittr); library(tidyverse); library(stringr); library(kableExtra); 
 library(plotly); library(lazerhawk); library(viridis)
 ```
 
 
+```{r load_data, eval=T}
+# load('data/x.RData')
+
+df1 <- tibble(
+  g1 = factor(sample(1:2, 50, replace = TRUE), labels=c('a','b')),
+  g2 = sample(1:4, 50, replace = TRUE),
+  a = rnorm(50),
+  b = rpois(50, 10),
+  c = sample(letters, 50, replace=TRUE),
+  d = sample(c(T,F), 50, replace=TRUE),
+  a_b = a*b,
+  b_sq = b^2
+)
+
+
+```
+
+
 # Introduction
+
+# Descriptive Statistics
+
+## Numeric variables
+
+```{r describe_num, eval=T}
+df_numeric = describe_all_num(df1) 
+df_numeric %>% 
+  kable(digits = 1, align = c('l', rep('r', ncol(.))))
+df1 %>% 
+  select_at(vars(df_numeric$Variable)) %>% 
+  gather(key=Variable, value=Value) %>% 
+  group_by(Variable) %>% 
+  filter(n_distinct(Value) >= 10) %>% 
+  ggplot(aes(x=Value)) +
+  geom_density(aes(color=Variable)) +
+  facet_wrap(~ Variable, scales = 'free') +
+  labs(y = '') + 
+  theme_trueMinimal() +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+```
+
+## Categorical variables
+
+```{r describe_cat, eval=T, results='asis'}
+df_cat = describe_all_cat(df1) 
+nams = as.list(unique(df_cat$Variable))
+
+df_cat %>% 
+  split(.$Variable) %>% 
+  map2(., nams, function(x, y) kable(x, align = c('l', rep('r', ncol(x))), caption=y))
+```
+
 
 
