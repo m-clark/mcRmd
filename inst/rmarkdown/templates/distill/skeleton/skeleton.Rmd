@@ -1,0 +1,44 @@
+---
+title: "Title"
+description: |
+author:
+  - name: Michael Clark 
+    url: https://m-clark.github.io
+    affiliation: University of Michigan <br> CSCAR
+    affiliation_url: https://cscar.research.umich.edu
+    department: yahoo
+date: "`r Sys.Date()`"
+output: 
+  distill::distill_article:
+    css: distill.css
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  eval = TRUE,
+  comment = NA,
+  R.options = list(width = 220),
+  dev.args = list(bg = 'transparent'),
+  dev = 'svglite',
+  fig.align = 'center',
+  out.width = '75%',
+  fig.asp = .75,
+  cache = FALSE, 
+  cache.rebuild = FALSE
+)
+
+library(tidyverse); library(kableExtra)
+
+# a basic pretty table
+kable_df <- function(..., digits=3) {
+  kable(..., digits=digits) %>% 
+    kable_styling(full_width = F)
+}
+
+# round for presentation
+rnd = function(x, digits = 3) format(round(x, digits), nsmall = digits)
+```
+
+
